@@ -7,6 +7,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
+/*
+This class going to be used for contacts module where we need  user to be logged-in inorder to perform further operations
+ */
 public class LoginCredentials {
 
    public static Map<String,String> setUp(){

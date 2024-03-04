@@ -2,6 +2,11 @@ package PayloadManager.Users;
 
 import net.datafaker.Faker;
 
+/*
+This  class is used to generate the payload
+ */
+
+
 public class UserDataGenerator {
 
     public static UserPojo addUserPayload(){
