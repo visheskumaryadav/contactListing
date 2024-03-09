@@ -24,7 +24,7 @@ public class RegisterUserApiTest {
 
     // Sends the add user request
     @Test(dataProvider = "addUserPayLoad")
-    public void testAddUserApi(ITestContext context,UserPojo payload) throws JsonProcessingException {
+    public void testAddUserApi(ITestContext context, UserPojo payload) throws JsonProcessingException {
         //Sending the request
         Response response= SendRequest.toAddUser(payload,new LinkedHashMap<>());
         System.out.println("-----------------TEST1 RESPONSE-------------------");

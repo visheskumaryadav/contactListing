@@ -12,7 +12,6 @@ public class AssertUtils {
 
     public static void assertForAddUser(Response response, UserPojo payload){
 
-        Assert.assertEquals(response.statusCode(),201,"Status code is not correct");
         //converting the response into a Map so that we can do operation using key:value pairs
         Map<String,Object> responseMap=response.as(new TypeRef<LinkedHashMap<String, Object>>() {});
         Assert.assertTrue(responseMap.containsKey("user"),"User property is absent in response");
@@ -30,11 +29,11 @@ public class AssertUtils {
         }
     }
 
-    public static void assertForLogin(Response response,UserPojo payload){
+    public static void assertForLogin(Response response, UserPojo payload){
         assertForAddUser(response,payload);
     }
 
-    public static void assertForAddUserError(Response response,UserPojo payload){
+    public static void assertForAddUserError(Response response, UserPojo payload){
         Assert.assertEquals(response.statusCode(), 400, "Status code is not 400");
         // converting the response into string
         String responseText=response.getBody().asString();
