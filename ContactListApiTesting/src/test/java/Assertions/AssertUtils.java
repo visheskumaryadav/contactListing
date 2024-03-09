@@ -33,4 +33,17 @@ public class AssertUtils {
     public static void assertForLogin(Response response,UserPojo payload){
         assertForAddUser(response,payload);
     }
+
+    public static void assertForAddUserError(Response response,UserPojo payload){
+        Assert.assertEquals(response.statusCode(), 400, "Status code is not 400");
+        // converting the response into string
+        String responseText=response.getBody().asString();
+        // Needed to replace the "_pass" word in payload w.r.t to testdata
+        if(payload.getExpectedErrorMessage().contains("_pass"))
+            payload.setExpectedErrorMessage(payload.getExpectedErrorMessage().replace("_pass",payload.getPassword()));
+        Assert.assertTrue(responseText.contains(payload.getExpectedErrorMessage()),"error message is not correct");
+    }
+
+
+
 }

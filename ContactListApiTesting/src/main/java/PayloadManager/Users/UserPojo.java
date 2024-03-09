@@ -1,7 +1,9 @@
 package PayloadManager.Users;
 
 
+import PayloadManager.BaseUserPojo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
 @Data
@@ -9,8 +11,9 @@ import lombok.*;
 @AllArgsConstructor
 @EqualsAndHashCode
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Builder(toBuilder = true)
-public class UserPojo {
+public class UserPojo extends BaseUserPojo {
     private String firstName;
     private String lastName;
     private String email;
