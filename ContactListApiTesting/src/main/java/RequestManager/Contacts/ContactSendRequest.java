@@ -8,14 +8,9 @@ import io.restassured.response.Response;
 
 import java.util.Map;
 
-public class SendRequest {
+public class ContactSendRequest {
 
 
-    public static Response toAddUser(Object payload, Map<String,String> headers){
-        return RestAssured.given().accept(ContentType.JSON).contentType(ContentType.JSON).headers(headers)
-                .body(payload)
-                .post(SetUp.endpoint(EndPoint.ADD_USER));
-    }
     public static Response toAddContact(Object payload, Map<String,String> headers){
         return RestAssured.given().accept(ContentType.JSON).contentType(ContentType.JSON).headers(headers)
                 .body(payload)
@@ -25,17 +20,20 @@ public class SendRequest {
         return RestAssured.given().accept(ContentType.JSON).contentType(ContentType.JSON).headers(headers)
                 .get(SetUp.endpoint(EndPoint.GET_CONTACT_LIST));
     }
-    public static Response toGetContact(Map<String,String> headers){
+    public static Response toGetContact(Map<String,String> headers,String contactId){
         return RestAssured.given().accept(ContentType.JSON).contentType(ContentType.JSON).headers(headers)
+                .pathParam("contactId",contactId)
                 .get(SetUp.endpoint(EndPoint.GET_CONTACT));
     }
-    public static Response toUpdateContact(Object payload, Map<String,String> headers){
+    public static Response toUpdateContact(Object payload, Map<String,String> headers,String contactId){
         return RestAssured.given().accept(ContentType.JSON).contentType(ContentType.JSON).headers(headers)
+                .pathParam("contactId",contactId)
                 .body(payload)
                 .put(SetUp.endpoint(EndPoint.UPDATE_CONTACT));
     }
-    public static Response toDeleteContact(Map<String,String> headers){
+    public static Response toDeleteContact(Map<String,String> headers,String contactId){
         return RestAssured.given().accept(ContentType.JSON).contentType(ContentType.JSON).headers(headers)
+                .pathParam("contactId",contactId)
                 .delete(SetUp.endpoint(EndPoint.DELETE_CONTACT));
     }
 

@@ -3,7 +3,7 @@ package Users.DataDrivenTesting;
 import Assertions.AssertUtils;
 import PayloadManager.Users.UserDataGenerator;
 import PayloadManager.Users.UserPojo;
-import RequestManager.Users.SendRequest;
+import RequestManager.Users.UserSendRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -26,7 +26,7 @@ public class RegisterUserApiTest {
     @Test(dataProvider = "addUserPayLoad")
     public void testAddUserApi(ITestContext context, UserPojo payload) throws JsonProcessingException {
         //Sending the request
-        Response response= SendRequest.toAddUser(payload,new LinkedHashMap<>());
+        Response response= UserSendRequest.toAddUser(payload,new LinkedHashMap<>());
         System.out.println("-----------------TEST1 RESPONSE-------------------");
         if(response.statusCode()>=200 && response.statusCode()<=205){
             // assertion for the requests which returns 200 or 201
@@ -42,7 +42,7 @@ public class RegisterUserApiTest {
     public void deleteUserApi(String token){
         Map<String,String> header=new LinkedHashMap<>();
         header.put("Authorization", "Bearer " + token);
-        Response response=SendRequest.toDeleteUser(header);
+        Response response= UserSendRequest.toDeleteUser(header);
         System.out.println("-----------------DELETING USER-------------------");
         response.then().assertThat().statusCode(200);
         Assert.assertTrue(response.getBody().asString().isEmpty(),"Body is not empty");

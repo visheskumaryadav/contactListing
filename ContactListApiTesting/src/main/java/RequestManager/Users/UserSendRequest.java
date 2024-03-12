@@ -10,7 +10,7 @@ import java.util.Map;
 /*
 This class used to setup to the request so that we can send it
  */
-public class SendRequest {
+public class UserSendRequest {
 
 
     public static Response toAddUser(Object payload, Map<String,String> headers){

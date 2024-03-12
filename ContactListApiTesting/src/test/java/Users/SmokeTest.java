@@ -3,7 +3,7 @@ package Users;
 import Assertions.AssertUtils;
 import PayloadManager.Users.UserDataGenerator;
 import PayloadManager.Users.UserPojo;
-import RequestManager.Users.SendRequest;
+import RequestManager.Users.UserSendRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -27,7 +27,7 @@ public class SmokeTest {
         // Setting the context so that payload could be shared with other requests
         context.setAttribute("payload",payload);
         //Sending the request
-        Response response= SendRequest.toAddUser(payload,new LinkedHashMap<>());
+        Response response= UserSendRequest.toAddUser(payload,new LinkedHashMap<>());
         System.out.println("-----------------TEST1 RESPONSE-------------------");
         //Method for performing the assertion
         Assert.assertEquals(response.statusCode(),201,"Status code is not correct");
@@ -41,7 +41,7 @@ public class SmokeTest {
         //Map for storing the token
         Map<String,String> header=new LinkedHashMap<>();
         header.put("Authorization", "Bearer " + context.getAttribute("token"));
-        Response response=SendRequest.toGetUserProfile(header);
+        Response response= UserSendRequest.toGetUserProfile(header);
         System.out.println("-----------------TEST2 RESPONSE-------------------");
        // Performing the assertions after deserializing  the response into User pojo class
         ObjectMapper objectMapper=new ObjectMapper();
@@ -60,7 +60,7 @@ public class SmokeTest {
         context.getAttribute("token");
         Map<String,String> header=new LinkedHashMap<>();
         header.put("Authorization", "Bearer " + context.getAttribute("token"));
-        Response response=SendRequest.toLogoutUser(header);
+        Response response= UserSendRequest.toLogoutUser(header);
         System.out.println("-----------------TEST3 RESPONSE-------------------");
         //Performing assertions
         response.then().log().all().assertThat().statusCode(200);
@@ -76,7 +76,7 @@ public class SmokeTest {
         credentials.put("email",payload.getEmail());
         credentials.put("password",payload.getPassword());
 
-        Response response=SendRequest.toLoginUser(credentials);
+        Response response= UserSendRequest.toLoginUser(credentials);
         System.out.println("-----------------TEST4 RESPONSE-------------------");
         response.then().log().all();
         Assert.assertEquals(response.statusCode(),200,"Status code is not correct");
@@ -90,7 +90,7 @@ public class SmokeTest {
         Map<String,String> header=new LinkedHashMap<>();
         header.put("Authorization", "Bearer " + context.getAttribute("token"));
 
-        Response response=SendRequest.toDeleteUser(header);
+        Response response= UserSendRequest.toDeleteUser(header);
         System.out.println("-----------------TEST5 RESPONSE-------------------");
         response.then().assertThat().statusCode(200);
         Assert.assertTrue(response.getBody().asString().isEmpty(),"Body is not empty");
@@ -103,7 +103,7 @@ public class SmokeTest {
         credentials.put("email",payload.getEmail());
         credentials.put("password",payload.getPassword());
 
-        Response response=SendRequest.toLoginUser(credentials);
+        Response response= UserSendRequest.toLoginUser(credentials);
         System.out.println("-----------------TEST6 RESPONSE-------------------");
 
     }

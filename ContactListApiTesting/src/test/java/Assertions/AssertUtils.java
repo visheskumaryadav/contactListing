@@ -1,6 +1,9 @@
 package Assertions;
 
+import PayloadManager.Contacts.ContactPojo;
 import PayloadManager.Users.UserPojo;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.common.mapper.TypeRef;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -44,5 +47,20 @@ public class AssertUtils {
     }
 
 
+    public static void assertForAddContact(ContactPojo payload,Response response) {
+        ObjectMapper mapper=new ObjectMapper();
+        try {
+            ContactPojo responsePojo = mapper.readValue(response.getBody().asString(), ContactPojo.class);
+            Assert.assertTrue(payload.equals(responsePojo),"payload and response is not same");
+        }catch (JsonProcessingException e){
+            e.printStackTrace();
+        }
+//        Map<String,String> responseMap=response.getBody().as(new TypeRef<LinkedHashMap<String,String>>() {});
+//
+//        Assert.assertEquals(payload.getFirstName(),responseMap.get("firstName"),"firstname is not equal");
+//        Assert.assertEquals(payload.getLastName(),responseMap.get("lastName"),"lastname is not equal");
+//        Assert.assertEquals(payload.getBirthdate(),responseMap.get("birthdate"),"birthdate is not equal");
+//        Assert.assertEquals(payload.getFirstName(),responseMap.get("firstName"),"firstname is not equal");
 
+    }
 }
