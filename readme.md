@@ -20,55 +20,27 @@ ContactListApiTesting
     ├───.idea
     │   └───inspectionProfiles
     ├───report
-    ├───src
-    │   ├───main
-    │   │   └───java
-    │   │       ├───EndPointsManager
-    │   │       ├───Listeners
-    │   │       ├───PayloadManager
-    │   │       │   ├───Contacts
-    │   │       │   └───Users
-    │   │       ├───RequestManager
-    │   │       │   ├───Contacts
-    │   │       │   └───Users
-    │   │       ├───Resources
-    │   │       │   ├───LoggedInUserData
-    │   │       │   └───PayloadData
-    │   │       └───Utils
-    │   └───test
-    │       ├───java
-    │       │   ├───Assertions
-    │       │   ├───Contacts
-    │       │   └───Users
-    │       │       └───DataDrivenTesting
-    │       └───TestData
-    └───target
-        ├───classes
-        │   ├───EndPointsManager
-        │   ├───Listeners
-        │   ├───PayloadManager
-        │   │   ├───Contacts
-        │   │   └───Users
-        │   ├───RequestManager
-        │   │   ├───Contacts
-        │   │   └───Users
-        │   └───Utils
-        ├───generated-sources
-        │   └───annotations
-        ├───generated-test-sources
-        │   └───test-annotations
-        ├───maven-status
-        │   └───maven-compiler-plugin
-        │       ├───compile
-        │       │   └───default-compile
-        │       └───testCompile
-        │           └───default-testCompile
-        ├───surefire-reports
-        │   ├───All Test Suite
-        │   └───junitreports
-        └───test-classes
-            ├───Assertions
-            ├───Contacts
-            └───Users
-                └───DataDrivenTesting
+    └───src
+        ├───main
+        │   └───java
+        │       ├───EndPointsManager
+        │       ├───Listeners
+        │       ├───PayloadManager
+        │       │   ├───Contacts
+        │       │   └───Users
+        │       ├───RequestManager
+        │       │   ├───Contacts
+        │       │   └───Users
+        │       ├───Resources
+        │       │   ├───LoggedInUserData
+        │       │   └───PayloadData
+        │       └───Utils
+        └───test
+            ├───java
+            │   ├───Assertions
+            │   ├───Contacts
+            │   └───Users
+            │       └───DataDrivenTesting
+            └───TestData
+
 ```
