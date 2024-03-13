@@ -1,7 +1,7 @@
 package EndPointsManager;
 
 /*
-This enum class is used to give name to endpoints
+This enum class is used to give name to endpoints.
  */
 public enum EndPoint {
     ADD_CONTACT,
