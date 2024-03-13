@@ -61,20 +61,23 @@ public class SmokeTest {
         context.setAttribute("token",loginTheUser(registerUser()));
        }
 
-    @Test
+    @Test(priority = 1)
     public void testAddContactApi(ITestContext context){
         Map<String,String> header=new LinkedHashMap<>();
         header.put("Authorization", "Bearer " + context.getAttribute("token"));
         ContactPojo payLoad=ContactDataGenerator.getContactPayLoad();
+        System.out.println(payLoad.toString());
         Response response=ContactSendRequest.toAddContact(payLoad,header);
+        response.then().log().all();
         if(response.statusCode()==201){
             AssertUtils.assertForAddContact(payLoad,response);
+            context.setAttribute("contactID",response.getBody().jsonPath().getString("_id"));
         }else{
             Assert.assertTrue(response.statusCode()==201,"Status code is not 201");
         }
     }
 
-    @Test
+    @Test(priority = 2)
     public void testGetContactListApi(ITestContext context){
         Map<String,String> header=new LinkedHashMap<>();
         header.put("Authorization", "Bearer " + context.getAttribute("token"));
@@ -82,7 +85,7 @@ public class SmokeTest {
         response.then().log().all();
 
     }
-    @Test
+    @Test(priority = 3)
     public void testGetContactApi(ITestContext context){
         Map<String,String> header=new LinkedHashMap<>();
         header.put("Authorization", "Bearer " + context.getAttribute("token"));
@@ -90,7 +93,7 @@ public class SmokeTest {
         response.then().log().all();
 
     }
-    @Test
+    @Test(priority = 4)
     public void testUpdateContactApi(ITestContext context){
         Map<String,String> header=new LinkedHashMap<>();
         header.put("Authorization", "Bearer " + context.getAttribute("token"));
@@ -99,7 +102,7 @@ public class SmokeTest {
         response.then().log().all();
 
     }
-    @Test
+    @Test(priority = 5)
     public void testDeleteContactApi(ITestContext context){
         Map<String,String> header=new LinkedHashMap<>();
         header.put("Authorization", "Bearer " + context.getAttribute("token"));

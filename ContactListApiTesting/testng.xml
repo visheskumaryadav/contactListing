@@ -4,9 +4,21 @@
     <listeners>
         <listener class-name="Listeners.TestListeners"/>
     </listeners>
-    <test  verbose="2" preserve-order="true" name="SMOKE TEST">
+    <test  verbose="2" preserve-order="true" name="User-SMOKE TEST">
         <classes>
             <class name="Users.SmokeTest">
+            </class>
+        </classes>
+    </test>
+    <test  verbose="2" preserve-order="true" name="User-DataDrivenTesting">
+        <classes>
+            <class name="Users.DataDrivenTesting.RegisterUserApiTest">
+            </class>
+        </classes>
+    </test>
+    <test  verbose="2" preserve-order="true" name="Contact-SMOKE TEST">
+        <classes>
+            <class name="Contacts.SmokeTest">
             </class>
         </classes>
     </test>

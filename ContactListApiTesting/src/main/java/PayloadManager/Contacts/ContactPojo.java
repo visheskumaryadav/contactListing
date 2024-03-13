@@ -14,37 +14,53 @@ import lombok.*;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Builder(toBuilder = true)
 public class ContactPojo extends BasePojo {
-    @JsonProperty("firstName")
+//    @JsonProperty("firstName")
     private String firstName;
 
-    @JsonProperty("lastName")
+//    @JsonProperty("lastName")
     private String lastName;
 
-    @JsonProperty("birthdate")
+//    @JsonProperty("birthdate")
     private String birthdate;
 
-    @JsonProperty("email")
+//    @JsonProperty("email")
     private String email;
 
-    @JsonProperty("phone")
+//    @JsonProperty("phone")
     private String phone;
 
-    @JsonProperty("street1")
+//    @JsonProperty("street1")
     private String street1;
 
-    @JsonProperty("street2")
+//    @JsonProperty("street2")
     private String street2;
 
-    @JsonProperty("city")
+//    @JsonProperty("city")
     private String city;
 
-    @JsonProperty("stateProvince")
+//    @JsonProperty("stateProvince")
     private String stateProvince;
 
-    @JsonProperty("postalCode")
+//    @JsonProperty("postalCode")
     private String postalCode;
 
-    @JsonProperty("country")
+//    @JsonProperty("country")
     private String country;
 
+    @Override
+    public String toString() {
+        return "ContactPojo{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birthdate='" + birthdate + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", street1='" + street1 + '\'' +
+                ", street2='" + street2 + '\'' +
+                ", city='" + city + '\'' +
+                ", stateProvince='" + stateProvince + '\'' +
+                ", postalCode='" + postalCode + '\'' +
+                ", country='" + country + '\'' +
+                '}';
+    }
 }
