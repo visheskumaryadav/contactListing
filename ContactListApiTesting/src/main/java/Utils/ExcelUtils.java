@@ -35,6 +35,21 @@ public class ExcelUtils {
                 } else {
                     // For rest of the rows
                     for (int j = 0; j < sheet.getRow(i).getPhysicalNumberOfCells(); j++) {
+                        /*
+                        Purpose of DataFormatter:
+                    Excel cells can store data in various formats like numbers, dates, formulas,
+                    and even text with specific formatting applied.
+                    When you directly access the cell value using methods
+                    like getStringCellValue() or getNumericCellValue(), you might get the
+                    raw data representation or encounter issues depending on the cell format.
+                    How DataFormatter Helps:
+                    The DataFormatter class provides a way to format the cell value consistently
+                    into a String representation, regardless of the underlying data type or formatting
+                    applied in the Excel sheet. This is particularly helpful for data-driven testing where
+                    you need predictable and usable data for your test cases.
+                    {TestID=1, TestDescription=register with valid data, StatusCode=201, ExpectedErrorMessage=NO_DATA,
+                    first_name=dinesh, last_name=kumar, email=dinesh@yopmail.com, password=12345678}
+                         */
                         DataFormatter dataFormatter=new DataFormatter();
                         map.put(keys.get(j), dataFormatter.formatCellValue(sheet.getRow(i).getCell(j)));
                     }
