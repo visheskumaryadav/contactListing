@@ -7,7 +7,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 import java.util.Map;
-
+// Here we compose request for the contact APIs
 public class ContactSendRequest {
 
 

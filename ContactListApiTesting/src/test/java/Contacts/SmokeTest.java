@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-
+// testcases using testNG for contacts
 public class SmokeTest {
     private String token;
     private  UserPojo registerUser(){
@@ -73,7 +73,7 @@ public class SmokeTest {
             AssertUtils.assertForAddContact(payLoad,response);
             context.setAttribute("contactID",response.getBody().jsonPath().getString("_id"));
         }else{
-            Assert.assertTrue(response.statusCode()==201,"Status code is not 201");
+            Assert.assertEquals(response.statusCode(), 201, "Status code is not 201");
         }
     }
 

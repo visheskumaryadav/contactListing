@@ -64,13 +64,7 @@
       <version>1.18.30</version>
       <scope>provided</scope>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
-    <!-- https://mvnrepository.com/artifact/org.json/json -->
-    <!--    <dependency>-->
-    <!--      <groupId>org.json</groupId>-->
-    <!--      <artifactId>json</artifactId>-->
-    <!--      <version>20231013</version>-->
-    <!--    </dependency>-->
+
 
 
   </dependencies>

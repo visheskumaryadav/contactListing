@@ -10,7 +10,7 @@ import org.testng.Assert;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-
+// Asserting the response with the payload
 public class AssertUtils {
 
     public static void assertForAddUser(Response response, UserPojo payload){
@@ -51,7 +51,8 @@ public class AssertUtils {
         ObjectMapper mapper=new ObjectMapper();
         try {
             ContactPojo responsePojo = mapper.readValue(response.getBody().asString(), ContactPojo.class);
-            Assert.assertTrue(payload.equals(responsePojo),"payload and response is not same");
+            // here assertion is done based hash and equal method as we are comparing two objects of same pojo class.
+            Assert.assertEquals(responsePojo, payload, "payload and response is not same");
         }catch (JsonProcessingException e){
             e.printStackTrace();
         }

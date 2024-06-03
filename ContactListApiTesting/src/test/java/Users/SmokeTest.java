@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-
+// testcase for user apis
 public class SmokeTest {
 
 

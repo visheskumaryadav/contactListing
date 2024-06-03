@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
+// simple data driven testing for register functionality.
 public class RegisterUserApiTest {
 // This will provide the data for consecutive requests
     @DataProvider
