@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
 # Contact List APIs
 
 <p>
@@ -17,7 +20,11 @@ So here we have 2 kinds of collections: Users and Contacts.
 
 <div style="display: flex; align-items: center;">
   <div style="flex: 0 0 auto;">
-    <img src="./readme images/collections.png" alt="Collections Image" style="width: 150px; margin-right: 20px;">
+  <a href="./readme images/collections.png" data-lightbox="image-1" data-title="Image Caption">
+  <img src="./readme images/collections.png" alt="Collections Image" style="width: 150px; margin-right: 20px;">
+  </a>
+
+    
   </div>
   <div style="flex: 1;">
     <p>
